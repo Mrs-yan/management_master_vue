@@ -5,6 +5,7 @@
       :dataList="dataList"
       :isShowAdmir="true"
       :isShowRefuse="true"
+      @onCurrentChange="handleCurrentChange"
       ref="pageContentRef"
     />
   </div>
@@ -48,6 +49,7 @@ export default {
     handleCurrentChange(val) {
       console.log(val);
       this.page = val;
+      console.log('shenpi');
       this.getPendList();
     },
   },

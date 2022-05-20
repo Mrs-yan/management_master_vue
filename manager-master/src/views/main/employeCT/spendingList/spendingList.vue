@@ -5,6 +5,7 @@
       :dataList="dataList"
       :isShowAdmir="true"
       :isShowRefuse="true"
+      @onCurrentChange="handleCurrentChange"
       ref="pageContentRef"
     />
   </div>

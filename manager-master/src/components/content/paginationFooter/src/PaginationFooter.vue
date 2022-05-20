@@ -1,5 +1,5 @@
 <template>
-  <el-pagination small layout="prev, pager, next" :total="50" @current-change="handleCurrentChange">
+  <el-pagination small layout="prev, pager, next" :total="150" @current-change="handleCurrentChange">
   </el-pagination>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   props: {
     total: {
       type: Number,
-      default: 50,
+      default: 150,
     },
   },
   methods: {
