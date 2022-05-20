@@ -59,6 +59,11 @@ export const modalConfig = {
       label: '实际开始时间',
     },
     {
+      field: 'endTime',
+      type: 'datepicker',
+      label: '结束时间',
+    },
+    {
       field: 'img',
       type: 'none',
     },
