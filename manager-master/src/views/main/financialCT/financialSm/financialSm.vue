@@ -79,7 +79,7 @@
           'align-items': 'center',
         }"
       >
-        <h3>任务支出</h3>
+        <h3>员工个人预支</h3>
         <h3>¥{{ data.taskSpend }}</h3>
         <!-- <img :src="imageUrl" class="image" /> -->
       </el-card>

@@ -141,7 +141,6 @@ export default {
           this.getTaskList();
         });
       }
-      location.reload();
     },
     handleDelect(id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {

@@ -32,8 +32,8 @@ export const modalConfig = {
     {
       field: 'describe',
       type: 'input',
-      label: '其他',
-      placeholder: '请输入公告内容',
+      label: '描述',
+      placeholder: '请输入描述',
     },
     {
       field: 'remark',
