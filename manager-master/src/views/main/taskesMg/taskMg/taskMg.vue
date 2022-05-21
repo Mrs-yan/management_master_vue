@@ -1,7 +1,13 @@
 <template>
   <div class="overview">
     <div class="new">
-      <el-button type="primary" icon="el-icon-plus" @click="onCreate" v-if="this.$store.getters.isAdmin">新建</el-button>
+      <el-button
+        type="primary"
+        icon="el-icon-plus"
+        @click="onCreate"
+        v-if="this.$store.getters.isAdmin"
+      >新建</el-button
+      >
     </div>
     <div class="showInfo">
       <template v-for="item in eqList">
@@ -54,6 +60,7 @@ export default {
       loginUserName: '',
       eqList: [],
       page: 1,
+      defaultModalConfig: {},
     };
   },
   mixins: [handleContentMixin],
@@ -95,22 +102,30 @@ export default {
       myRequest.get(`/task/getTaskById/${id}`).then((res) => {
         this.formData = res.data;
 
+        // this.defaultModalConfig = this.modalConfig;
+
         //判断状态禁用表单
         if (this.formData.status === 3) {
           this.modalConfig.formItems.forEach((item) => {
             item.disabled = true;
           });
         } else {
-          this.modalConfig.formItems.forEach((item) => {
-            item.disabled = false;
+          this.modalConfig.formItems.forEach((item, index) => {
+            if (index === 7 || index === 8) {
+              item.disabled = true;
+            } else {
+              item.disabled = false;
+            }
           });
         }
 
         this.onView();
+        // this.modalConfig = this.defaultModalConfig;
       });
       console.log(id);
     },
     handleConfirm(newFormData, id) {
+      console.log('www');
       if (!id) {
         myRequest
           .post(`/task/addTask`, { ...newFormData, createBy: this.loginUserName })
@@ -126,6 +141,7 @@ export default {
           this.getTaskList();
         });
       }
+      location.reload();
     },
     handleDelect(id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {

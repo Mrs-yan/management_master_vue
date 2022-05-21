@@ -6,7 +6,7 @@
         icon="el-icon-plus"
         @click="onCreate"
         v-if="this.$store.getters.isAdmin"
-        >新建</el-button
+      >新建</el-button
       >
     </div>
     <div class="showInfo">
@@ -17,6 +17,7 @@
           :imageUrl="item.img"
           :key="item.id"
           :id="item.id"
+          :eqStatus="item.status"
           @view="handleView"
           @delect="handleDelect"
         />

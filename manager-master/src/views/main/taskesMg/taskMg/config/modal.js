@@ -11,6 +11,7 @@ export const modalConfig = {
       field: 'customerId',
       type: 'select',
       label: '客户名称',
+      placeholder: '请选择客户名称',
     },
     {
       field: 'equipmentId',
@@ -57,11 +58,13 @@ export const modalConfig = {
       field: 'actualStartTime',
       type: 'datepicker',
       label: '实际开始时间',
+      disabled: true,
     },
     {
       field: 'endTime',
       type: 'datepicker',
       label: '结束时间',
+      disabled: true,
     },
     {
       field: 'img',

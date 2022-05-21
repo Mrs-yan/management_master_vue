@@ -11,6 +11,7 @@
     >
       <div>
         <div v-if="status">状态：{{ realStatus }}</div>
+        <div v-if="eqStatus">状态：{{ realEqStatus }}</div>
         <div>名称：{{ name }}</div>
         <div v-if="model">型号：{{ model }}</div>
         <div v-if="workNumber">工号：{{ workNumber }}</div>
@@ -19,14 +20,14 @@
         <div v-if="sex">性别：{{ sex }}</div>
         <div v-if="idCardNumber">身份证号码：{{ idCardNumber }}</div>
         <div class="bottom clearfix">
-          <el-button type="primary" size="mini" class="button" @click="handleView">查看</el-button>
+          <el-button type="primary" size="mini" class="button" @click="handleView">查看/编辑</el-button>
           <el-button
             type="danger"
             size="mini"
             class="button"
             @click="handleDelect"
             v-if="this.$store.getters.isAdmin"
-            >删除</el-button
+          >删除</el-button
           >
         </div>
       </div>
@@ -77,6 +78,10 @@ export default {
       type: Number,
       default: 0,
     },
+    eqStatus: {
+      type: Number,
+      default: 0,
+    },
     telephoneNumber: {
       type: String,
       default: '',
@@ -105,12 +110,13 @@ export default {
         return 'gray';
       } else if (this.status === 2) {
         return '#d8f6f2';
-      } else if (this.status === 1) {
+      } else if (this.status === 1 || this.eqStatus === 1) {
         return '#9fbc50';
       } else {
         return '#fff';
       }
     },
+    //任务状态
     realStatus() {
       if (this.status === 3) {
         return '已完成';
@@ -118,6 +124,14 @@ export default {
         return '未开始';
       } else {
         return '进行中';
+      }
+    },
+    //设备状态
+    realEqStatus() {
+      if (this.eqStatus === 1) {
+        return '工作中';
+      } else {
+        return '空闲';
       }
     },
   },

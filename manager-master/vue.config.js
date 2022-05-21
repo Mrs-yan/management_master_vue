@@ -3,8 +3,8 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        // target: 'http://localhost:8101',
-        target: 'http://124.71.223.181:7222',
+         target: 'http://localhost:8101',
+        //target: 'http://124.71.223.181:7222',
         pathRewrite: {
           '^/api': '',
         },
